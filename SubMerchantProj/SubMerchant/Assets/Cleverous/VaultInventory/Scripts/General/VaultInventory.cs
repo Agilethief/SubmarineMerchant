@@ -72,7 +72,7 @@ namespace Cleverous.VaultInventory
                 return null;
             }
 
-            if (item == null || item.ArtPrefab == null)
+            if (item == null || item.artPrefabWorld == null)
             {
                 Debug.LogError("Failed SpawnWorldItem(). The input Source item or Art Prefab object was null when trying to SpawnWorldItem().");
                 return null;
@@ -92,7 +92,7 @@ namespace Cleverous.VaultInventory
             return itemComponent;
         }
 
-        public static GameObject SpawnInventoryUi(Inventory bindTo)
+        public static GameObject SpawnInventoryUi(Inventory bindTo, string inventoryName = "Inventory")
         {
             GameObject go = Object.Instantiate(GenericInventoryUi, GameCanvas.transform);
             go.GetComponentInChildren<InventoryUi>().SetTargetInventory(bindTo);

@@ -79,7 +79,7 @@ namespace Cleverous.VaultInventory
             //Debug.Log($"<color=cyan>Spawned as [{m_itemId}] : ({m_stackSize}) {source.Title}</color>", this);
 
             Data = new RootItemStack(source, StackSize);
-            GraphicsObject = Instantiate(Data.Source.ArtPrefab, transform, false);
+            GraphicsObject = Instantiate(Data.Source.artPrefabWorld, transform, false);
 
             // Server did this already.
             // If not running headless, the server is a client (Host) and reaches this code too, so we'd have to skip it.

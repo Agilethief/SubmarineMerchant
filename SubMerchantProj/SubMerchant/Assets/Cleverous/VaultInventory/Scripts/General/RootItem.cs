@@ -19,9 +19,12 @@ namespace Cleverous.VaultInventory
         private Sprite m_uiIcon;
         public Sprite UiIcon { get => m_uiIcon; set => m_uiIcon = value; }
 
-        public GameObject ArtPrefab;
+        public GameObject artPrefabWorld, artPrefabHeld;
         public int MaxStackSize;
         public int Value;
+        public int Weight;
+        public int MaxDurability;
+
 
         [AssetDropdown(typeof(Interaction))] 
         public Interaction[] ExtraInteractions;
@@ -35,9 +38,12 @@ namespace Cleverous.VaultInventory
             Rarity = ItemRarity.Common;
             Restriction = null;
             m_uiIcon = null;
-            ArtPrefab = null;
+            artPrefabWorld = null;
+            artPrefabHeld = null;
             MaxStackSize = 99;
             Value = 100;
+            Weight = 1;
+            MaxDurability = 999;
         }
 
         public virtual Color GetRarityColor()

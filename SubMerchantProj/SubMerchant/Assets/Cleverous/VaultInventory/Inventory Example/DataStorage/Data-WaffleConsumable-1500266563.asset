@@ -18,10 +18,12 @@ MonoBehaviour:
   Rarity: 0
   Restriction: {fileID: 0}
   m_uiIcon: {fileID: 21300014, guid: c05af3c76a404254816eedb7ec9b3fe0, type: 3}
-  ArtPrefab: {fileID: 7542997276482450911, guid: b60deb2288af3784f8eb38373567ac14,
-    type: 3}
+  artPrefabWorld: {fileID: 0}
+  artPrefabHeld: {fileID: 0}
   MaxStackSize: 99
   Value: 51
+  Weight: 0
+  MaxDurability: 0
   ExtraInteractions: []
   m_useCooldown: 1
   ConsumeSound: {fileID: 8300000, guid: 04a8354cae2a32c4197eec8386e02b16, type: 3}

@@ -18,10 +18,12 @@ MonoBehaviour:
   Rarity: 2
   Restriction: {fileID: 11400000, guid: de4c8520a6e14635b03df7e556319126, type: 2}
   m_uiIcon: {fileID: 21300010, guid: c05af3c76a404254816eedb7ec9b3fe0, type: 3}
-  ArtPrefab: {fileID: 7631886107402497564, guid: a9e3a9f79587a1d45b3ad19a74f94da5,
-    type: 3}
+  artPrefabWorld: {fileID: 0}
+  artPrefabHeld: {fileID: 0}
   MaxStackSize: 1
   Value: 100
+  Weight: 18
+  MaxDurability: 0
   ExtraInteractions: []
   Weight: 18
   AttackValue: 19

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ScrapTower
+namespace CargoGame
 {
     public class BaseClientOnlyBehaviour : MonoBehaviour
     {

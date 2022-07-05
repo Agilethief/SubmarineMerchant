@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
-using ScrapTower;
+using CargoGame;
 
 public class BaseBehaviour : NetworkBehaviour
 {
@@ -77,15 +77,15 @@ public class BaseBehaviour : NetworkBehaviour
 
     }
 
-    //public SimplePlayer GetPlayerFromConnection(NetworkConnectionToClient conn)
-    //{
-    //    foreach (NetworkIdentity networkIdentity in conn.clientOwnedObjects)
-    //    {
-    //        if (networkIdentity.GetComponent<SimplePlayer>() != null)
-    //            return networkIdentity.GetComponent<SimplePlayer>();
-    //    }
-    //    return null;
-    //}
+    public SimplePlayer GetPlayerFromConnection(NetworkConnectionToClient conn)
+    {
+        foreach (NetworkIdentity networkIdentity in conn.clientOwnedObjects)
+        {
+            if (networkIdentity.GetComponent<SimplePlayer>() != null)
+                return networkIdentity.GetComponent<SimplePlayer>();
+        }
+        return null;
+    }
 
     public static bool FastApproximately(float a, float b, float threshold)
     {
