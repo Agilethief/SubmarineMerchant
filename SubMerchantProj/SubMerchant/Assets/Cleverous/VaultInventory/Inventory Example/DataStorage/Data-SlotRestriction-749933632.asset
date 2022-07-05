@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddd6988029d48899e1cfcdd5cdf48f7, type: 3}
+  m_Name: Data-SlotRestriction-749933632
+  m_EditorClassIdentifier: 
+  m_dbKey: 144509
+  m_title: V - Type Armor Arms
+  m_description: Arm Slot Only
+  UiIcon: {fileID: 21300000, guid: 201d51d3762de6147838b69912275e89, type: 3}

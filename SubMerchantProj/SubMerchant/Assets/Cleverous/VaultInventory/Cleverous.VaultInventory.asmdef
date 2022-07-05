@@ -1,0 +1,20 @@
+{
+    "name": "Cleverous.VaultInventory",
+    "rootNamespace": "",
+    "references": [
+        "GUID:185340934ce1fe54a96b79b146acf2a3",
+        "GUID:022ab40da7d9caa4a95cdd90356a6fdc",
+        "GUID:30817c1a0e6d646d99c048fc403f5979",
+        "GUID:7c88a4a7926ee5145ad2dfa06f454c67",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

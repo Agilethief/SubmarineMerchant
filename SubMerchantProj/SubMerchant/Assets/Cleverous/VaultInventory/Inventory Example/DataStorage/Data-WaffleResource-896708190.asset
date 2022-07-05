@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e1d69276820ad448237982b9737263, type: 3}
+  m_Name: Data-WaffleResource-896708190
+  m_EditorClassIdentifier: 
+  m_dbKey: 144519
+  m_title: V - Super Wood
+  m_description: A superior wood.
+  Rarity: 0
+  Restriction: {fileID: 0}
+  m_uiIcon: {fileID: 21300004, guid: c05af3c76a404254816eedb7ec9b3fe0, type: 3}
+  ArtPrefab: {fileID: 4841217569752110200, guid: 45a38ffd3b886634294731952d4cf679,
+    type: 3}
+  MaxStackSize: 99
+  Value: 100
+  ExtraInteractions: []
+  SomeCraftingValue: 123

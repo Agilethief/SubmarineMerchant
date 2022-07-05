@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e1d69276820ad448237982b9737263, type: 3}
+  m_Name: Data-WaffleResource-1652839343
+  m_EditorClassIdentifier: 
+  m_dbKey: 144521
+  m_title: V - Cheddar Coin
+  m_description: Coin shaped Cheddar Cheese.
+  Rarity: 0
+  Restriction: {fileID: 0}
+  m_uiIcon: {fileID: 1161201145128540330, guid: c05af3c76a404254816eedb7ec9b3fe0,
+    type: 3}
+  ArtPrefab: {fileID: 759734436600810299, guid: e31fbbe4c7a4da544a028d6440227253,
+    type: 3}
+  MaxStackSize: 99999
+  Value: 1
+  ExtraInteractions: []
+  SomeCraftingValue: 1

@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8949174996148111022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8949174996148111020}
+  - component: {fileID: 8949174996148111021}
+  m_Layer: 0
+  m_Name: VAULT Example Sound Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8949174996148111020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8949174996148111022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 889.3651, y: 497.6007, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8949174996148111021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8949174996148111022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a47f8d71cf9984aaf040deabfd19f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClipMoveBegin: {fileID: 8300000, guid: 927a48046404d7d46b82e2b2d5523691, type: 3}
+  ClipMoveEnd: {fileID: 8300000, guid: a8101ad46f6b83c4b88ddc44325366e8, type: 3}
+  ClipPickup: {fileID: 8300000, guid: 68e9a1dda16334f4e9ee0e76498323e7, type: 3}
+  ClipVictory: {fileID: 8300000, guid: b6dd4622fb714a64682284f1ab9e4dcd, type: 3}
+  CoinItem: {fileID: 11400000, guid: 1ac6dcf4939248d187d6eab1acf0be15, type: 2}
+  ClipCoin: {fileID: 8300000, guid: da8afc60f65bede44a0315f6f3d4c878, type: 3}

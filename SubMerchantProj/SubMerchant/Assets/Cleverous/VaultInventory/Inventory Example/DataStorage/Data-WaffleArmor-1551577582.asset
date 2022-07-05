@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2402f663a2b4e7f874644f8e478a11a, type: 3}
+  m_Name: Data-WaffleArmor-1551577582
+  m_EditorClassIdentifier: 
+  m_dbKey: 144513
+  m_title: V - Power Boots
+  m_description: They have convenient little USB-C plugs for charging your devices
+  Rarity: 2
+  Restriction: {fileID: 11400000, guid: ad5c40b730a04285a7b6b37ab5b60f26, type: 2}
+  m_uiIcon: {fileID: 21300026, guid: c05af3c76a404254816eedb7ec9b3fe0, type: 3}
+  ArtPrefab: {fileID: 1073242643139962, guid: a196c9ebc66647a486b6e20c4d857f12, type: 3}
+  MaxStackSize: 1
+  Value: 52
+  ExtraInteractions: []
+  Weight: 6
+  DefenseValue: 2

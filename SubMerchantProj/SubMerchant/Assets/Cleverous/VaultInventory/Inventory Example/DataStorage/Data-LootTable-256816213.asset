@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ac88a7ea9c41efa347eea46bc501a4, type: 3}
+  m_Name: Data-LootTable-256816213
+  m_EditorClassIdentifier: 
+  m_dbKey: 144506
+  m_title: V - Player Starting Loot
+  m_description: What the Player should start with. Loot tables can be examined any
+    way you want, or automatic with the GetLoot() method.
+  Items:
+  - {fileID: 11400000, guid: 8450b2e211520d14dbac0d71b7cc9956, type: 2}
+  - {fileID: 11400000, guid: 7249a6bc57947b3418fe7ab9cf5d1998, type: 2}
+  - {fileID: 11400000, guid: f92d493de5cb40b8b37cfc2cb50ec6b0, type: 2}
+  - {fileID: 11400000, guid: 5aa7badc5b06407499dd59dbd0bb5902, type: 2}
+  - {fileID: 11400000, guid: fbc28fd6df544208b47a5e9d291c1059, type: 2}
+  - {fileID: 11400000, guid: 30b998078fa2fd64d875f0a46210fc1f, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Amounts: 0c00000010000000010000000100000001000000d46a010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  Weights:
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100

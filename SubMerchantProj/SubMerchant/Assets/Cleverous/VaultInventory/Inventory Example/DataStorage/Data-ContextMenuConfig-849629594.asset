@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76b9aa086b5da04ea734f21da68a3e2, type: 3}
+  m_Name: Data-ContextMenuConfig-849629594
+  m_EditorClassIdentifier: 
+  m_dbKey: 144500
+  m_title: Default Interactions
+  m_description: 
+  UseInteraction: {fileID: 11400000, guid: 246d39854bdaedc4e9f71e781a5bebd9, type: 2}
+  SplitInteraction: {fileID: 11400000, guid: 6b87278706e8cf443a054b4f92415684, type: 2}
+  DropInteraction: {fileID: 11400000, guid: c60b1aea67d835c41947883e6971f9cc, type: 2}

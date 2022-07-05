@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4458034c6b524be9811d5219ecd4fa20, type: 3}
+  m_Name: Data-WaffleWeapon-1931113838
+  m_EditorClassIdentifier: 
+  m_dbKey: 144523
+  m_title: V - Blade Of Grass
+  m_description: The only painful thing about it is how painfully ineffective it
+    is.
+  Rarity: 4
+  Restriction: {fileID: 11400000, guid: de4c8520a6e14635b03df7e556319126, type: 2}
+  m_uiIcon: {fileID: 21300016, guid: c05af3c76a404254816eedb7ec9b3fe0, type: 3}
+  ArtPrefab: {fileID: 8314352041153505609, guid: cfbf542a1115c21479d3fa3dca8b2bd3,
+    type: 3}
+  MaxStackSize: 1
+  Value: 42
+  ExtraInteractions: []
+  Weight: 3
+  AttackValue: 4

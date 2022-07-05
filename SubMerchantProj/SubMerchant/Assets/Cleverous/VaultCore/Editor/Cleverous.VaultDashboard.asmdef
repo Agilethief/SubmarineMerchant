@@ -1,0 +1,17 @@
+{
+    "name": "Cleverous.VaultDashboard",
+    "references": [
+        "GUID:185340934ce1fe54a96b79b146acf2a3"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

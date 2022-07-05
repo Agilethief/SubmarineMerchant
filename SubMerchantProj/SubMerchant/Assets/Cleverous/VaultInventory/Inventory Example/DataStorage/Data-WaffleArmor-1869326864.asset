@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2402f663a2b4e7f874644f8e478a11a, type: 3}
+  m_Name: Data-WaffleArmor-1869326864
+  m_EditorClassIdentifier: 
+  m_dbKey: 144514
+  m_title: V - Thornplate
+  m_description: It only hurts on the inside
+  Rarity: 0
+  Restriction: {fileID: 11400000, guid: 46450503b87f4fb4b92b4602d6a49449, type: 2}
+  m_uiIcon: {fileID: 21300022, guid: c05af3c76a404254816eedb7ec9b3fe0, type: 3}
+  ArtPrefab: {fileID: 1552007511042072, guid: 27688d3237b74a288211c217e2f3e867, type: 3}
+  MaxStackSize: 1
+  Value: 34
+  ExtraInteractions: []
+  Weight: 42
+  DefenseValue: 9
