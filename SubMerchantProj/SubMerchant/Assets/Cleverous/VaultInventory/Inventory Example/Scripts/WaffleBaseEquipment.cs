@@ -6,8 +6,6 @@ namespace Cleverous.VaultInventory.Example
 {
     public abstract class WaffleBaseEquipment : RootItem
     {
-        [Header("[Equipment]")]
-        public int Weight;
 
         protected override void Reset()
         {

@@ -57,9 +57,12 @@ namespace CargoGame
 
         public void RespawnLocalPlayer()
         {
-            if(localPlayer == null) return;
+            if(localPlayer == null) {
+                Debug.LogWarning("Attempted to respawn the local player, but had no player to respawn"); return;
+            }
 
             localPlayer.movementStateMachine.Spawn(NetworkManager.startPositions[0].position);
+            
 
         }
 
