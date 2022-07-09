@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4721958306448316336}
   - component: {fileID: 8979261858144327766}
-  - component: {fileID: 4721958306448316338}
   - component: {fileID: 3697373941673699158}
-  - component: {fileID: 1496932398}
+  - component: {fileID: 67089662857853796}
+  - component: {fileID: 383148362}
+  - component: {fileID: 1967342455658656373}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -53,7 +54,7 @@ MonoBehaviour:
   serverTickRate: 30
   offlineScene: Assets/_Game/Scenes/GameScene.unity
   onlineScene: Assets/_Game/Scenes/GameScene.unity
-  transport: {fileID: 4721958306448316338}
+  transport: {fileID: 67089662857853796}
   networkAddress: localhost
   maxConnections: 100
   authenticator: {fileID: 0}
@@ -62,35 +63,6 @@ MonoBehaviour:
   autoCreatePlayer: 0
   playerSpawnMethod: 0
   spawnPrefabs: []
---- !u!114 &4721958306448316338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4721958306448316340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Port: 7777
-  DualMode: 1
-  NoDelay: 1
-  Interval: 10
-  Timeout: 10000
-  FastResend: 2
-  CongestionWindow: 0
-  SendWindowSize: 4096
-  ReceiveWindowSize: 4096
-  MaxRetransmit: 40
-  NonAlloc: 1
-  MaximizeSendReceiveBuffersToOSLimit: 1
-  ReliableMaxMessageSize: 298449
-  UnreliableMaxMessageSize: 1199
-  debugLog: 0
-  statisticsGUI: 0
-  statisticsLog: 0
 --- !u!114 &3697373941673699158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,7 +79,7 @@ MonoBehaviour:
   rebuildInterval: 1
   checkMethod: 0
   showSlider: 0
---- !u!114 &1496932398
+--- !u!114 &67089662857853796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,8 +88,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 4721958306448316340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
+  m_Script: {fileID: 11500000, guid: e6e55fca1f4e4844593a3dd65a3ecb39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetX: 0
-  offsetY: 0
+  Channels: 0200000001000000
+  Timeout: 25
+  AllowSteamRelay: 1
+  UseNextGenSteamNetworking: 1
+--- !u!114 &383148362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4721958306448316340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e599a6fb204cf45a9e45ee9578d876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1967342455658656373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4721958306448316340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f7ee1653beab50489a1de61a9860113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current_lobbyID: 0
+  lobbyIDS: []

@@ -48,13 +48,13 @@ MonoBehaviour:
   - m_typeName: Cleverous.VaultInventory.InventoryConfig, Cleverous.VaultInventory,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     m_data:
-    - {fileID: 11400000, guid: 829397903ceb4bf4686dc38891c9d674, type: 2}
     - {fileID: 11400000, guid: 815191c9906740b5a7fcd29bf9811b12, type: 2}
+    - {fileID: 11400000, guid: 829397903ceb4bf4686dc38891c9d674, type: 2}
   - m_typeName: Cleverous.VaultInventory.LootTable, Cleverous.VaultInventory, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_data:
-    - {fileID: 11400000, guid: edc6badd7c7472d46bd1b0169871034d, type: 2}
     - {fileID: 11400000, guid: 536e86f6bbf54006bb4b0404435597be, type: 2}
+    - {fileID: 11400000, guid: edc6badd7c7472d46bd1b0169871034d, type: 2}
   - m_typeName: Cleverous.VaultInventory.RootItem, Cleverous.VaultInventory, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_data:
@@ -90,9 +90,9 @@ MonoBehaviour:
   - m_typeName: Cleverous.VaultInventory.Interaction, Cleverous.VaultInventory, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_data:
-    - {fileID: 11400000, guid: 246d39854bdaedc4e9f71e781a5bebd9, type: 2}
-    - {fileID: 11400000, guid: 6b87278706e8cf443a054b4f92415684, type: 2}
     - {fileID: 11400000, guid: c60b1aea67d835c41947883e6971f9cc, type: 2}
+    - {fileID: 11400000, guid: 6b87278706e8cf443a054b4f92415684, type: 2}
+    - {fileID: 11400000, guid: 246d39854bdaedc4e9f71e781a5bebd9, type: 2}
   - m_typeName: Cleverous.VaultInventory.ItemInteractionDrop, Cleverous.VaultInventory,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     m_data:

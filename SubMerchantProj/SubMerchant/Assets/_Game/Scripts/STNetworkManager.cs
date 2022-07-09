@@ -7,6 +7,7 @@ namespace CargoGame
 {
     public class STNetworkManager : NetworkManager
     {
+
         public override void Awake()
         {
             base.Awake();
