@@ -31,6 +31,8 @@ namespace CargoGame
 
             GameData.hostingGame = true;
 
+            SteamLobby.instance.CreateNewLobby(Steamworks.ELobbyType.k_ELobbyTypePublic);
+
             // Start loading world
             MainMenuManager.Instance.OpenScene("GameScene");
         }
