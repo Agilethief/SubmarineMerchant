@@ -68,8 +68,6 @@ namespace CargoGame
 
         public virtual void InteractEnd(NetworkConnectionToClient conn)
         {
-            
-
             if(debugThisObject) Debug.Log(entityName + " finished being interacted with");
         }
 

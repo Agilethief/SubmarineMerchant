@@ -6,7 +6,7 @@ namespace CargoGame
 {
     public class ES_Falling : BaseEntityState
     {
-        float gravity = -1.97f;
+        float gravity = -1.45f;
         public ES_Falling(SM_Movement stateMachine) : base("Falling", stateMachine)
         {
             SetMovementSM(stateMachine);

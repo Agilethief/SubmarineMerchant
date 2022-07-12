@@ -51,7 +51,7 @@ namespace CargoGame
         public float currentGravity, targetGravity;
 
         public bool previouslyGrounded;
-        float _coyoteTimer, _coyoteTimerMax = 0.45f;
+        float _coyoteTimer, _coyoteTimerMax = 0.25f;
 
         private IMovable _moveable;
         public IMovable movable
@@ -118,14 +118,16 @@ namespace CargoGame
 
         }
 
-
+        
         // This is used when E is pressed. We check there is something to interact with here and move to the interact state as needed
         public void AttemptInteract()
         {
-            if(player.currentlookAtInteractable == null) return; // Check - Is there even something to interact with?
+            if (player.currentlookAtInteractable == null) return; // Check - Is there even something to interact with?
+            if(!player.handsStateMachine.handsFree) return; // If the hands are busy we cannae interact
+
             currentInteractable = player.currentlookAtInteractable;
 
-            if(currentInteractable.interactionType == InteractableBase.InteractionType.Channel)
+            if (currentInteractable.interactionType == InteractableBase.InteractionType.Channel)
             {
                 ChangeState(channelState);
                 return;
@@ -139,17 +141,17 @@ namespace CargoGame
         public void InteractInputStart()
         {
             //Debug.Log("InteractStartInput");
-            if(player.currentlookAtInteractable == null) return;
+            if (player.currentlookAtInteractable == null) return;
             //if(!player.currentlookAtInteractable.interactionComplete) return;
 
             currentInteractable = player.currentlookAtInteractable;
             CmdInteractStart(currentInteractable);
-            
+
         }
         public void InteractInputEnd()
         {
             //Debug.Log("InteractEndInput");
-            if(currentInteractable == null) return;
+            if (currentInteractable == null) return;
 
             CmdInteractEnd(currentInteractable);
             currentInteractable = null;
@@ -164,7 +166,7 @@ namespace CargoGame
         [Command]
         public void CmdInteractEnd(InteractableBase targetInteractable)
         {
-             targetInteractable.InteractEnd(player.connectionToClient);
+            targetInteractable.InteractEnd(player.connectionToClient);
         }
         [Command]
         public void CmdCloseContainer(InteractableContainer targetInteractable)

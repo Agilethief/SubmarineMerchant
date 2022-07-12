@@ -42,6 +42,17 @@ namespace CargoGame
             crosshairCompletionCircle.rectTransform.rotation = Quaternion.identity;
         }
 
+         public void HideCrosshair()
+        {
+            crosshairImage.sprite = null;
+            crosshairImage.color = Color.clear;
+            crosshairImage.rectTransform.rotation = Quaternion.identity;
+
+            crosshairImage.gameObject.SetActive(true);
+            crosshairCompletionCircle.gameObject.SetActive(false);
+            crosshairCompletionCircle.rectTransform.rotation = Quaternion.identity;
+        }
+
         public void RotateCrosshair(float rotateAmount)
         {
             crosshairImage.transform.Rotate(0,0,rotateAmount);

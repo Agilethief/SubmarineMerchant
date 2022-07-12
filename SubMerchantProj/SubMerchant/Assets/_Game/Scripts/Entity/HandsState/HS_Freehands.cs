@@ -15,8 +15,6 @@ namespace CargoGame
         {
             base.EnterState();
             sm.handsFree = true;
-            
-
         }
 
         public override void UpdateState()

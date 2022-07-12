@@ -288,6 +288,8 @@ namespace CargoGame
 
         void LookAtScan()
         {
+            if(!handsStateMachine.handsFree) return; // Cannot look at while hands busy
+
             Debug.DrawLine(camRig.ownCam.transform.position, camRig.ownCam.transform.position + camRig.ownCam.transform.forward * lookAtRange, Color.red);
 
             if (Physics.Raycast(camRig.ownCam.transform.position, camRig.ownCam.transform.forward, out lookAtRayHit, lookAtRange, lookAtRayLayerMask, QueryTriggerInteraction.Ignore))
@@ -365,6 +367,7 @@ namespace CargoGame
         public void PickedUpObject(Int_Carryable carryObject)
         {
             handsStateMachine.ChangeState(handsStateMachine.carryingState);
+            playerUI.crosshairPanel.HideCrosshair();
             currentCarryObject = carryObject;
         }
         public void DroppedObject()

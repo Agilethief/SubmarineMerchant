@@ -39,7 +39,7 @@ namespace CargoGame
         }
 
         public bool handsFree;
-
+        
 
         private void Awake()
         {
@@ -78,6 +78,7 @@ namespace CargoGame
             camRig.VerticalLook(camRig.verticalRot);
 
         }
+
 
 
     }
