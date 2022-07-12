@@ -62,6 +62,7 @@ namespace CargoGame
             }
 
             localPlayer.movementStateMachine.Spawn(NetworkManager.startPositions[0].position);
+            localPlayer.handsStateMachine.Spawn();
             
 
         }

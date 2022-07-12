@@ -32,9 +32,17 @@ namespace CargoGame
         }
 
 
+        private void Start()
+        {
+            interactionComplete = true; // This just makes sure the object can be interacted with
+        }
+
         public virtual void Interact(NetworkConnectionToClient conn, int _interactingPlayerID)
         {
-            if(!interactionComplete) return;
+            if(!interactionComplete) {
+                Debug.Log("Interaction is not complete, cancel interaction");
+                return;
+            }
 
             if(debugThisObject) Debug.Log(entityName + " Interacted with");
             interactionComplete = false;
@@ -45,13 +53,17 @@ namespace CargoGame
             //interactingPlayer = interactingPlayerNetID.GetComponent<SimplePlayer>();
             interactingPlayerID = _interactingPlayerID;
 
+            //Debug.Log("Player list count" + gameManager.playerList);
             foreach(SimplePlayer player in gameManager.playerList)
             {
                 if(player.playerID == _interactingPlayerID)
                 {
                     interactingPlayer = player;
+                    //Debug.Log("Found and set the interacting player");
+                    break;
                 }
             }
+            if(interactingPlayer == null) Debug.Log("Could not find the interacting player");
         }
 
         public virtual void InteractEnd(NetworkConnectionToClient conn)

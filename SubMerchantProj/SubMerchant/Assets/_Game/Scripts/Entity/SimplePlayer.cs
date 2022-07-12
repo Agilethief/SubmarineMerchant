@@ -5,6 +5,7 @@ using Mirror;
 using TMPro;
 using Cleverous.VaultSystem;
 using Cleverous.VaultInventory;
+using Steamworks;
 
 namespace CargoGame
 {
@@ -38,6 +39,17 @@ namespace CargoGame
                 return _movementStateMachine;
             }
         }
+        private SM_Hands _handsStateMachine;
+        public SM_Hands handsStateMachine
+        {
+            get
+            {
+                if (_handsStateMachine == null) _handsStateMachine = transform.GetComponent<SM_Hands>();
+
+                return _handsStateMachine;
+            }
+        }
+
 
         private CamRig _camRig;
         public CamRig camRig
@@ -97,7 +109,9 @@ namespace CargoGame
         public InteractableBase currentlookAtInteractable;
 
         public Transform heldObjectSocket;
-        public GameObject currentHeldItem;  // This is the item that is held by the player in the first person view.
+        public GameObject currentHeldItem;  // This is the item that is held by the player in the first person view. aka the item in their hands. This is not the item they are carrying
+        public Int_Carryable currentCarryObject;
+        public Transform carrySocket { get { return camRig.carrySocket;} }
 
         public override void OnStartLocalPlayer()
         {
@@ -118,7 +132,8 @@ namespace CargoGame
             gameManager.localPlayer = this;
             localPlayerObject = this;
 
-            CmdSetupPlayer("Player: " + Random.Range(100, 900).ToString());  // Send command to server to set this value
+             if(!SteamManager.Initialized) return;
+             CmdSetupPlayer(SteamFriends.GetPersonaName());  // Send command to server to set this value
         }
 
         public override void OnStartServer()
@@ -224,20 +239,10 @@ namespace CargoGame
                 playerUI.hotbarUi.DecrementHotbar();
             }
 
-            if(Input.GetKeyDown(KeyCode.F))
+            if(pos.y <= -1010)
             {
-                SpawnTestObject(pos + fwd, rot);
+                gameManager.RespawnLocalPlayer();
             }
-
-        }
-
-        [Command]
-        void SpawnTestObject(Vector3 spawnPos, Quaternion spawnRot)
-        {
-            GameObject spawnedObj = Instantiate(NetworkManager.singleton.spawnPrefabs[0], spawnPos, spawnRot);
-            NetworkServer.Spawn(spawnedObj);
-            
-                
         }
 
 
@@ -354,6 +359,17 @@ namespace CargoGame
             if (currentHeldItem == null) return;
 
             Destroy(currentHeldItem);
+        }
+
+        // Called remotely via RPC to tell the player they are holding something.
+        public void PickedUpObject(Int_Carryable carryObject)
+        {
+            handsStateMachine.ChangeState(handsStateMachine.carryingState);
+            currentCarryObject = carryObject;
+        }
+        public void DroppedObject()
+        {
+            currentCarryObject = null;
         }
     }
 

@@ -13,6 +13,8 @@ namespace CargoGame
         SM_Movement movementSM;
 
         public TMP_Text playerState;
+        public TMP_Text playerHandsState;
+        public TMP_Text playerSpeed;
 
 
         public void Update()
@@ -22,6 +24,8 @@ namespace CargoGame
             if(!player.isLocalPlayer) return;
 
             playerState.text = player.movementStateMachine.GetStateStatus();
+            playerHandsState.text = player.handsStateMachine.GetStateStatus();
+            playerSpeed.text = player.movementStateMachine.moveSpeed.ToString();
 
 
         }

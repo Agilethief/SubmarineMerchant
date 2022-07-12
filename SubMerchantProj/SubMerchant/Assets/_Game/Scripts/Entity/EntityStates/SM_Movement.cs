@@ -28,7 +28,7 @@ namespace CargoGame
 
 
         [HideInInspector]
-        public float moveSpeed = 4f;
+        public float moveSpeed = 12.5f;
 
 
         private SimplePlayer _player;
@@ -47,7 +47,7 @@ namespace CargoGame
 
         public float sidewaysInput { get { return Input.GetAxis("Horizontal"); } }
         public float forwardsInput { get { return Input.GetAxis("Vertical"); } }
-        public Vector3 vel;
+        public Vector3 vel, inputVel;
         public float currentGravity, targetGravity;
 
         public bool previouslyGrounded;
@@ -76,6 +76,8 @@ namespace CargoGame
             jumpingState = new ES_Jumping(this);
             inMenuState = new ES_InMenu(this);
             waitingToSpawnState = new ES_WaitingToSpawn(this);
+
+            moveSpeed = player.baseMoveSpeed;
         }
 
         override public void Update()
@@ -99,9 +101,12 @@ namespace CargoGame
 
         public void MovementInput(float gravityInfluence = 0, float speedModifier = 1f)
         {
-            vel = new Vector3(sidewaysInput, gravityInfluence, forwardsInput);
+            inputVel = new Vector3(sidewaysInput, 0, forwardsInput); // Stop diagonal fast movement
+            inputVel = Vector3.ClampMagnitude(inputVel, 1);
 
-            movable.Move(moveSpeed * speedModifier * vel * 3);
+            vel = new Vector3(inputVel.x, gravityInfluence, inputVel.z);
+
+            movable.Move(moveSpeed * speedModifier * vel);
         }
 
         public void EnterMenuState()
@@ -176,10 +181,18 @@ namespace CargoGame
         public void Spawn(Vector3 spawnPos)
         {
             pos = spawnPos;
+            SetPosition(spawnPos);
+            vel = Vector3.zero;
+            //player.cc.
+            //Debug.Break();
             ChangeState(idleState);
 
         }
-
+        [Command]
+        public void SetPosition(Vector3 targetPos)
+        {
+            pos = targetPos;
+        }
 
         public bool SMGrounded()
         {

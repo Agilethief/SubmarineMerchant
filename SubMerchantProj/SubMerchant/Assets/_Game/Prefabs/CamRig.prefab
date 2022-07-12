@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2994150952958651676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7858177691242572264}
+  m_Layer: 0
+  m_Name: CarrySocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7858177691242572264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2994150952958651676}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.293, z: 1.986}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4731867798504590082}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3755951239925568601
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,6 +60,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5525665876830152858}
+  - {fileID: 7858177691242572264}
   m_Father: {fileID: 8117016417941036365}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -85,14 +117,17 @@ MonoBehaviour:
   deadPostVolume: {fileID: 5827623258129453100}
   ownCam: {fileID: 6688368974009666709}
   pivot: {fileID: 4731867798504590082}
-  turnSpeed: 50
-  lookSpeed: 50
+  turnSpeed: 140
+  lookSpeed: 140
   maxUpLook: 90
   maxDownLook: -90
   blockCamInput: 0
+  horizontalRot: 0
+  verticalRot: 0
   baseFOV: 80
   dizzyFOV: 90
   deadFOV: 50
+  carrySocket: {fileID: 7858177691242572264}
 --- !u!1 &9161040363422879565
 GameObject:
   m_ObjectHideFlags: 0

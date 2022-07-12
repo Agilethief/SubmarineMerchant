@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Mirror;
 
 namespace CargoGame
 {
-    public class StateMachine : BaseBehaviour
+    public class StateMachineHands : BaseBehaviour
     {
-        BaseEntityState currentState;
+       BaseHandsState currentState;
+       
         
+
 
         // Start is called before the first frame update
         public override void OnStartLocalPlayer ()
@@ -27,14 +28,14 @@ namespace CargoGame
                 currentState.UpdateState();
         }
 
-        public void ChangeState(BaseEntityState newState)
+        public void ChangeState(BaseHandsState newState)
         {
             currentState.ExitState();
             currentState = newState;
             currentState.EnterState();
         }
 
-        protected virtual BaseEntityState GetInitialState()
+        protected virtual BaseHandsState GetInitialState()
         {
             return null;
         }
@@ -43,14 +44,5 @@ namespace CargoGame
         {
             return currentState.stateName;
         }
-
-        // Just a little helper
-        //private void OnGUI()
-        //{
-        //    if(!isLocalPlayer) return;
-        //
-        //    string content = currentState != null ? currentState.stateName : "(No current state)";
-        //    GUILayout.Label($"<color='blue'><size=24>{content}</size></color>");
-        //}
     }
 }

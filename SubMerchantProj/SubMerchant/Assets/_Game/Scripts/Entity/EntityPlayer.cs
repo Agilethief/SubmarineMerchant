@@ -8,7 +8,7 @@ namespace CargoGame
     public class EntityPlayer : Entity, IDamagable
     {
         [Header("Player Attributes")]
-        [SerializeField] protected float baseMoveSpeed;
+        [SerializeField] public float baseMoveSpeed;
         [SerializeField] protected float dizzyMoveSpeed;
 
         [SerializeField, SyncVar (hook = nameof(RefreshUIHealth))]

@@ -29,25 +29,19 @@ namespace CargoGame
 
         public bool blockCamInput;
 
-        private float horizontalRot, verticalRot;
+        [HideInInspector]
+        public float horizontalRot, verticalRot;
 
         IEnumerator fovLerpingRoutine;
         public float baseFOV = 80, dizzyFOV = 90, deadFOV = 50;
-
+        public Transform carrySocket;
 
         private void Update()
         {
             
             if(blockCamInput) {  return; }
 
-            InputUpdate();
-
-
-            if (simplePlayer != null)
-            {
-                TurnPlayer(horizontalRot, simplePlayer.transform);
-                VerticalLook(verticalRot);
-            }
+            // We used to handle input here, now we do it in the hands statemachine
 
             if(dizzy)
             {
@@ -63,7 +57,7 @@ namespace CargoGame
 
         }
 
-        void InputUpdate()
+        public void InputUpdate()
         {
             horizontalRot = Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime;
 

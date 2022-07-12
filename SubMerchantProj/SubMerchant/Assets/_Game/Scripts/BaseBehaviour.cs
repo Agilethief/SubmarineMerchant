@@ -8,8 +8,17 @@ public class BaseBehaviour : NetworkBehaviour
 {
     public bool debugThisObject;
 
-    public Rigidbody rb { get { return transform.GetComponent<Rigidbody>(); } }
-    public CharacterController cc { get { return transform.GetComponent<CharacterController>(); } }
+    private Rigidbody _rb;
+    public Rigidbody rb { get {  
+                if(_rb == null) _rb = transform.GetComponent<Rigidbody>(); 
+                return _rb;
+                } }
+
+    private CharacterController _cc;
+    public CharacterController cc { get {  
+                if(_cc == null) _cc = transform.GetComponent<CharacterController>(); 
+                return _cc;
+                } }
     public Vector3 pos
     {
         get { return transform.position; }

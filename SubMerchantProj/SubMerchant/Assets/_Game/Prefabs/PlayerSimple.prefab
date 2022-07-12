@@ -272,6 +272,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1962133667864849115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5746664335405134946}
+  m_Layer: 6
+  m_Name: CarryItemSocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5746664335405134946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962133667864849115}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.25, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6160459298846041326}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3333043007360378992
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,6 +318,7 @@ GameObject:
   - component: {fileID: 6866092409145080562}
   - component: {fileID: 5898420268217855188}
   - component: {fileID: 8355347069232113529}
+  - component: {fileID: 4699491935031722939}
   m_Layer: 6
   m_Name: PlayerSimple
   m_TagString: Untagged
@@ -309,8 +341,9 @@ Transform:
   - {fileID: 9109983471053693943}
   - {fileID: 7583605453521728924}
   - {fileID: 7675731981510626491}
+  - {fileID: 5746664335405134946}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6342720200300515525
 MonoBehaviour:
@@ -399,8 +432,8 @@ MonoBehaviour:
   entityName: Player
   doNotSave: 0
   itemID: 0
-  baseMoveSpeed: 5
-  dizzyMoveSpeed: 0
+  baseMoveSpeed: 8
+  dizzyMoveSpeed: 3
   healthCurrent: 100
   healthMax: 100
   waterCurrent: 100
@@ -426,14 +459,16 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 1
-  lookAtRange: 1.65
+  lookAtRange: 2
   lookAtRayLayerMask:
     serializedVersion: 2
     m_Bits: 64
   currentLookAtObject: {fileID: 0}
   currentlookAtInteractable: {fileID: 0}
   heldObjectSocket: {fileID: 7514941112748220448}
+  carryObjectSocket: {fileID: 5746664335405134946}
   currentHeldItem: {fileID: 0}
+  currentCarryObject: {fileID: 0}
 --- !u!114 &5898420268217855188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,6 +486,7 @@ MonoBehaviour:
   debugThisObject: 0
   moveSpeed: 4
   vel: {x: 0, y: 0, z: 0}
+  inputVel: {x: 0, y: 0, z: 0}
   currentGravity: 0
   targetGravity: 0
   previouslyGrounded: 0
@@ -470,6 +506,22 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   m_configuration: {fileID: 11400000, guid: 829397903ceb4bf4686dc38891c9d674, type: 2}
+--- !u!114 &4699491935031722939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3333043007360378992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16dd8359fdb4a214caf9bc2865c56a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  debugThisObject: 0
+  handsFree: 0
 --- !u!1 &5389535901785822883
 GameObject:
   m_ObjectHideFlags: 0
