@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 5898420268217855188}
   - component: {fileID: 8355347069232113529}
   - component: {fileID: 4699491935031722939}
+  - component: {fileID: 7086952390371155519}
   m_Layer: 6
   m_Name: PlayerSimple
   m_TagString: Untagged
@@ -448,6 +449,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2147483647
   playerID: 0
+  camRigPrefab: {fileID: 6776223048176918207, guid: 6637833d18217784393ba3d01052a6ec,
+    type: 3}
   playerUIPrefab: {fileID: 1924210837615248126, guid: 6ffdfc93f6fcf38489a58f056d74a1c2,
     type: 3}
   StartingItems: {fileID: 11400000, guid: 536e86f6bbf54006bb4b0404435597be, type: 2}
@@ -466,9 +469,9 @@ MonoBehaviour:
   currentLookAtObject: {fileID: 0}
   currentlookAtInteractable: {fileID: 0}
   heldObjectSocket: {fileID: 7514941112748220448}
-  carryObjectSocket: {fileID: 5746664335405134946}
   currentHeldItem: {fileID: 0}
   currentCarryObject: {fileID: 0}
+  carrySocket: {fileID: 5746664335405134946}
 --- !u!114 &5898420268217855188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,6 +525,41 @@ MonoBehaviour:
   syncInterval: 0.1
   debugThisObject: 0
   handsFree: 0
+--- !u!114 &7086952390371155519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3333043007360378992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734b48bea0b204338958ee3d885e11f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 0
+  sendInterval: 0.05
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 0
+  bufferTimeMultiplier: 1
+  bufferSizeLimit: 64
+  catchupThreshold: 4
+  catchupMultiplier: 0.1
+  onlySyncOnChange: 1
+  bufferResetMultiplier: 5
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  target: {fileID: 5746664335405134946}
 --- !u!1 &5389535901785822883
 GameObject:
   m_ObjectHideFlags: 0

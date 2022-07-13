@@ -18,7 +18,7 @@ namespace CargoGame
             }
 
             base.Interact(conn, _interactingPlayerID);
-            //Debug.Log("Interacting with pickup");
+            Debug.Log(interactingPlayer.playerName + ": Interacting with pickup");
 
             Pickup(interactingPlayer.carrySocket);
             TargetRPCPickup(conn);
@@ -34,6 +34,9 @@ namespace CargoGame
 
         public void Pickup(Transform pickingUpObject)
         {
+            //if(!hasAuthority) return;
+
+            Debug.Log(interactingPlayer.playerName + ": Interacting with pickup");
             //Debug.Log("Object now picked up");
             rb.useGravity = false;
             rb.isKinematic = true;
@@ -46,6 +49,8 @@ namespace CargoGame
         }
         public void Drop(float throwStr)
         {
+            //if(!hasAuthority) return;
+
             rb.useGravity = true;
             rb.isKinematic = false;
             

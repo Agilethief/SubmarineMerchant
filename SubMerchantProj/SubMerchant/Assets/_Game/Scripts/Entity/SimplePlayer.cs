@@ -50,17 +50,25 @@ namespace CargoGame
             }
         }
 
-
+        [SerializeField]
+        private CamRig camRigPrefab;
         private CamRig _camRig;
         public CamRig camRig
         {
             get
             {
-                if (_camRig == null) _camRig = FindObjectOfType<CamRig>();
+                if (_camRig == null)
+                {
+                    _camRig = Instantiate(camRigPrefab, null);
+                    NetworkServer.Spawn(_camRig.gameObject, connectionToClient);
+                    _camRig.FindPlayerCam();
+                } 
 
                 return _camRig;
             }
         }
+
+
 
        [SerializeField]
        private PlayerUI playerUIPrefab;
@@ -111,14 +119,15 @@ namespace CargoGame
         public Transform heldObjectSocket;
         public GameObject currentHeldItem;  // This is the item that is held by the player in the first person view. aka the item in their hands. This is not the item they are carrying
         public Int_Carryable currentCarryObject;
-        public Transform carrySocket { get { return camRig.carrySocket;} }
+        public Transform carrySocket;
 
         public override void OnStartLocalPlayer()
         {
 
-            camRig.transform.SetParent(transform);
-            camRig.transform.localPosition = new Vector3(0, 0, 0);
+            //camRig.transform.SetParent(transform);
+            camRig.transform.position = pos;
             camRig.simplePlayer = this;
+            
 
             artContainerFirstPerson.transform.parent = camRig.GetCamTransform();
             artContainerFirstPerson.transform.localPosition = Vector3.zero;
@@ -142,6 +151,8 @@ namespace CargoGame
 
             gameManager.playerList.Add(this);
             playerID = gameManager.playerList.Count;
+
+            if(!hasAuthority) camRig.ownCam.gameObject.SetActive(false); // Disable the camera object if it is not our object.
 
         }
         private void OnDestroy()
@@ -220,7 +231,8 @@ namespace CargoGame
 
             LookAtScan();
 
-           
+            carrySocket.position = camRig.carrySocket.position;
+            carrySocket.rotation = camRig.carrySocket.rotation;
 
             // Temp
             if (Input.GetKeyDown(KeyCode.Tab))

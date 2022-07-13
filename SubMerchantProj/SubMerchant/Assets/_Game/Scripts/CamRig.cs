@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using Mirror;
 
 namespace CargoGame
 {
-    public class CamRig : BaseClientOnlyBehaviour
+    public class CamRig : BaseBehaviour
     {
         [SerializeField]
         public SimplePlayer simplePlayer;
@@ -15,10 +16,12 @@ namespace CargoGame
         bool dizzy;
         float dizzyX, dizzyY, dizzyYRot;
 
+        public Camera ownCam { get { return playerCam.ownCam; } }
+        public Camera cam { get { return playerCam.ownCam; } }
+
+        public PlayerCamera playerCam;
         [SerializeField]
-        public Camera ownCam;
-        [SerializeField]
-        private Transform pivot;
+        public Transform pivot;
 
 
         [SerializeField]
@@ -36,9 +39,26 @@ namespace CargoGame
         public float baseFOV = 80, dizzyFOV = 90, deadFOV = 50;
         public Transform carrySocket;
 
+        public override void OnStartClient()
+        {
+            base.OnStartClient();
+
+            // Take control of the player cam;
+            if (playerCam == null)
+            {
+                playerCam = FindObjectOfType<PlayerCamera>();
+                playerCam.SetRig(this);
+            }
+        }
+
         private void Update()
         {
-            
+            if(simplePlayer != null)
+            { 
+                pos = simplePlayer.pos;
+                rot = simplePlayer.rot;
+            }
+
             if(blockCamInput) {  return; }
 
             // We used to handle input here, now we do it in the hands statemachine
@@ -79,7 +99,19 @@ namespace CargoGame
 
         public Transform GetCamTransform()
         {
-            return ownCam.transform;
+            if(ownCam != null)
+                return ownCam.transform;
+            else
+                return null;
+        }
+
+        public void FindPlayerCam()
+        {
+            if (playerCam == null)
+            {
+                playerCam = FindObjectOfType<PlayerCamera>();
+                playerCam.SetRig(this);
+            }
         }
 
         public void SetDizzyWater(bool SetOn)
