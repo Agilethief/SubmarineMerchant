@@ -8,6 +8,7 @@ namespace CargoGame
     public class Int_Carryable : InteractablePressable, ICarryable
     {
 
+        public Transform pickupTransform;
 
         public override void Interact(NetworkConnectionToClient conn, int _interactingPlayerID)
         {
@@ -19,6 +20,8 @@ namespace CargoGame
 
             base.Interact(conn, _interactingPlayerID);
             Debug.Log(interactingPlayer.playerName + ": Interacting with pickup");
+
+            GetComponent<NetworkIdentity>().AssignClientAuthority(conn);
 
             Pickup(interactingPlayer.carrySocket);
             TargetRPCPickup(conn);
@@ -32,6 +35,17 @@ namespace CargoGame
             
         }
 
+        void Update()
+        {
+            if(!hasAuthority) return;
+            
+            if (pickupTransform != null)
+            {
+                transform.position = pickupTransform.position;
+                transform.rotation = pickupTransform.rotation;
+            }
+        }
+
         public void Pickup(Transform pickingUpObject)
         {
             //if(!hasAuthority) return;
@@ -41,10 +55,10 @@ namespace CargoGame
             rb.useGravity = false;
             rb.isKinematic = true;
             
-            transform.SetParent(pickingUpObject, false);
-            transform.localPosition = Vector3.zero;
+            pickupTransform = pickingUpObject;
+            transform.position = pickingUpObject.position;
             transform.rotation = pickingUpObject.rotation;
-
+            
             interactionComplete = false;
         }
         public void Drop(float throwStr)
@@ -54,9 +68,10 @@ namespace CargoGame
             rb.useGravity = true;
             rb.isKinematic = false;
             
-            transform.SetParent(null);
+             pickupTransform = null;
 
             interactionComplete = true;
+            GetComponent<NetworkIdentity>().RemoveClientAuthority();
 
             rb.AddForce(fwd * throwStr, ForceMode.Impulse);
 
