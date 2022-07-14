@@ -53,6 +53,8 @@ namespace CargoGame
 
         private void Update()
         {
+            if(!hasAuthority) return;
+
             if(simplePlayer != null)
             { 
                 pos = simplePlayer.pos;
@@ -79,6 +81,8 @@ namespace CargoGame
 
         public void InputUpdate()
         {
+             if(!hasAuthority) return;
+
             horizontalRot = Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime;
 
             verticalRot = Mathf.Min(maxUpLook, Mathf.Max(maxDownLook, verticalRot + Input.GetAxis("Mouse Y") * lookSpeed * Time.deltaTime));

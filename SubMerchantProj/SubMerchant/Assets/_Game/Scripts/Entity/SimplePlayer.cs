@@ -123,8 +123,6 @@ namespace CargoGame
 
         public override void OnStartLocalPlayer()
         {
-
-            //camRig.transform.SetParent(transform);
             camRig.transform.position = pos;
             camRig.simplePlayer = this;
             
@@ -152,7 +150,6 @@ namespace CargoGame
             gameManager.playerList.Add(this);
             playerID = gameManager.playerList.Count;
 
-            if(!hasAuthority) camRig.ownCam.gameObject.SetActive(false); // Disable the camera object if it is not our object.
 
         }
         private void OnDestroy()
