@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8979261858144327766
 MonoBehaviour:
@@ -65,6 +65,8 @@ MonoBehaviour:
   playerSpawnMethod: 0
   spawnPrefabs:
   - {fileID: 5548583820078008069, guid: 6637833d18217784393ba3d01052a6ec, type: 3}
+  camRigPrefab: {fileID: 6776223048176918207, guid: 6637833d18217784393ba3d01052a6ec,
+    type: 3}
 --- !u!114 &3697373941673699158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   current_lobbyID: 0
   lobbyIDS: []
-  networkManager: {fileID: 0}
+  networkManager: {fileID: 8979261858144327766}
 --- !u!114 &310877761
 MonoBehaviour:
   m_ObjectHideFlags: 0

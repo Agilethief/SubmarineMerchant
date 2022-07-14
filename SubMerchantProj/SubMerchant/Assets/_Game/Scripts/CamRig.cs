@@ -51,6 +51,7 @@ namespace CargoGame
             }
         }
 
+       
         private void Update()
         {
             if(!hasAuthority) return;

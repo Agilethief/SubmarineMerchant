@@ -8,6 +8,8 @@ namespace CargoGame
     public class STNetworkManager : NetworkManager
     {
 
+        public CamRig camRigPrefab;
+
         public override void Awake()
         {
             base.Awake();
@@ -50,8 +52,11 @@ namespace CargoGame
 
             GameObject character = Instantiate(playerPrefab);
             NetworkServer.AddPlayerForConnection(conn, character);
-        }
 
+            CamRig camRig = Instantiate(camRigPrefab);
+            NetworkServer.Spawn(camRig.gameObject, conn);
+
+        }
 
 
     }

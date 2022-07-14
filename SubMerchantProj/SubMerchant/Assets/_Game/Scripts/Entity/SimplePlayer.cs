@@ -59,8 +59,14 @@ namespace CargoGame
             {
                 if (_camRig == null)
                 {
-                    _camRig = Instantiate(camRigPrefab, null);
-                    NetworkServer.Spawn(_camRig.gameObject, connectionToClient);
+                    foreach(CamRig camRigX in FindObjectsOfType<CamRig>())
+                    {
+                        if(camRigX.hasAuthority)
+                             _camRig = camRigX;
+                    }
+                    
+                    if(_camRig == null) return null; // Didn't find one that we own :( 
+
                     _camRig.FindPlayerCam();
                 } 
 
