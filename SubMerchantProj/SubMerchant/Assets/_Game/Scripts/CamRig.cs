@@ -6,7 +6,7 @@ using Mirror;
 
 namespace CargoGame
 {
-    public class CamRig : BaseBehaviour
+    public class CamRig : BaseClientOnlyBehaviour
     {
         [SerializeField]
         public SimplePlayer simplePlayer;
@@ -17,9 +17,20 @@ namespace CargoGame
         float dizzyX, dizzyY, dizzyYRot;
 
         public Camera ownCam { get { return playerCam.ownCam; } }
-        public Camera cam { get { return playerCam.ownCam; } }
 
-        public PlayerCamera playerCam;
+        private PlayerCamera _playerCamera;
+        public PlayerCamera playerCam
+        {
+            get
+            {
+                if (_playerCamera == null)
+                {
+                    _playerCamera = FindObjectOfType<PlayerCamera>(); // Could have this attached to the game manager if we didnt' want to do a find
+                    _playerCamera.SetRig(this);
+                }
+                return _playerCamera;
+            }
+        }
         [SerializeField]
         public Transform pivot;
 
@@ -39,23 +50,9 @@ namespace CargoGame
         public float baseFOV = 80, dizzyFOV = 90, deadFOV = 50;
         public Transform carrySocket;
 
-        public override void OnStartClient()
-        {
-            base.OnStartClient();
-
-            // Take control of the player cam;
-            if (playerCam == null)
-            {
-                playerCam = FindObjectOfType<PlayerCamera>();
-                playerCam.SetRig(this);
-            }
-        }
-
        
         private void Update()
         {
-            if(!hasAuthority) return;
-
             if(simplePlayer != null)
             { 
                 pos = simplePlayer.pos;
@@ -82,7 +79,6 @@ namespace CargoGame
 
         public void InputUpdate()
         {
-             if(!hasAuthority) return;
 
             horizontalRot = Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime;
 
@@ -108,15 +104,6 @@ namespace CargoGame
                 return ownCam.transform;
             else
                 return null;
-        }
-
-        public void FindPlayerCam()
-        {
-            if (playerCam == null)
-            {
-                playerCam = FindObjectOfType<PlayerCamera>();
-                playerCam.SetRig(this);
-            }
         }
 
         public void SetDizzyWater(bool SetOn)
@@ -168,12 +155,12 @@ namespace CargoGame
 
                 normalisedTime = Mathf.InverseLerp(0, 1, timer);
 
-                cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFOV, normalisedTime);
+                ownCam.fieldOfView = Mathf.Lerp(ownCam.fieldOfView, targetFOV, normalisedTime);
 
                 yield return null;
             }
 
-             cam.fieldOfView = targetFOV;
+             ownCam.fieldOfView = targetFOV;
 
             yield return null;
         }

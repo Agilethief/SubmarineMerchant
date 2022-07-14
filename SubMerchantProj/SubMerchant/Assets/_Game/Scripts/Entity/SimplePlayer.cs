@@ -50,31 +50,10 @@ namespace CargoGame
             }
         }
 
-        [SerializeField]
-        private CamRig camRigPrefab;
-        private CamRig _camRig;
-        public CamRig camRig
-        {
-            get
-            {
-                if (_camRig == null)
-                {
-                    foreach(CamRig camRigX in FindObjectsOfType<CamRig>())
-                    {
-                        if(camRigX.hasAuthority)
-                             _camRig = camRigX;
-                    }
-                    
-                    if(_camRig == null) return null; // Didn't find one that we own :( 
-
-                    _camRig.FindPlayerCam();
-                } 
-
-                return _camRig;
-            }
-        }
 
 
+        // This must be attached to the player prefab
+        public CamRig camRig;
 
        [SerializeField]
        private PlayerUI playerUIPrefab;
