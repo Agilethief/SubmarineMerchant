@@ -7,7 +7,7 @@ namespace CargoGame
 {
     public class Int_Carryable : InteractablePressable, ICarryable
     {
-
+        [SyncVar]
         public Transform pickupTransform;
 
         public override void Interact(NetworkConnectionToClient conn, int _interactingPlayerID)
@@ -21,13 +21,14 @@ namespace CargoGame
             base.Interact(conn, _interactingPlayerID);
             Debug.Log(interactingPlayer.playerName + ": Interacting with pickup");
 
-            GetComponent<NetworkIdentity>().AssignClientAuthority(conn);
+            
 
             Pickup(interactingPlayer.carrySocket);
             TargetRPCPickup(conn);
         }
 
         
+        // Let the interacting and thus picking up player do any First Person things they need to do when picking up
         [TargetRpc]
         private void TargetRPCPickup(NetworkConnection conn)
         {
@@ -52,26 +53,26 @@ namespace CargoGame
 
             Debug.Log(interactingPlayer.playerName + ": Interacting with pickup");
             //Debug.Log("Object now picked up");
-            rb.useGravity = false;
             rb.isKinematic = true;
             
             pickupTransform = pickingUpObject;
-            transform.position = pickingUpObject.position;
-            transform.rotation = pickingUpObject.rotation;
             
+            netID.AssignClientAuthority(interactingConnectionToClient);
+
             interactionComplete = false;
         }
-        public void Drop(float throwStr)
+
+        [Command]
+        public void CMDDrop(float throwStr)
         {
             //if(!hasAuthority) return;
 
-            rb.useGravity = true;
             rb.isKinematic = false;
             
-             pickupTransform = null;
+            pickupTransform = null;
 
             interactionComplete = true;
-            GetComponent<NetworkIdentity>().RemoveClientAuthority();
+            netID.RemoveClientAuthority();
 
             rb.AddForce(fwd * throwStr, ForceMode.Impulse);
 

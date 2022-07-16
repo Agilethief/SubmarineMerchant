@@ -8,6 +8,6 @@ namespace CargoGame
     {
         public void Pickup(Transform pickingUpObject);
 
-        public void Drop(float throwStr);
+        public void CMDDrop(float throwStr);
     }
 }

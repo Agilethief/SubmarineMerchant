@@ -10,14 +10,25 @@ namespace CargoGame
         public enum InteractionType {Channel, Pickup, Container, Pressable }
         public InteractionType interactionType;
 
+        [SyncVar]
         public bool interactionComplete;
 
         public Sprite crosshairSprite;
 
         protected NetworkConnection interactingPlayerConnection;
+        protected NetworkConnectionToClient interactingConnectionToClient;
         protected NetworkIdentity interactingPlayerNetID;
         protected SimplePlayer interactingPlayer;
         protected int interactingPlayerID;
+
+         private NetworkIdentity _NetID;
+        public NetworkIdentity netID
+        {  get {
+                if (_NetID == null) _NetID = GetComponent<NetworkIdentity>();
+                return _NetID;
+            }
+        }
+
 
         // TODO: Handle the GM better
         private GameManager _GM;
@@ -48,7 +59,7 @@ namespace CargoGame
             interactionComplete = false;
 
             interactingPlayerConnection = conn;
-
+            interactingConnectionToClient = conn;
             interactingPlayerNetID = conn.identity;
             //interactingPlayer = interactingPlayerNetID.GetComponent<SimplePlayer>();
             interactingPlayerID = _interactingPlayerID;

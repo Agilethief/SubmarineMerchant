@@ -232,7 +232,7 @@ Transform:
   - {fileID: 2245286358570623484}
   - {fileID: 2245286358358146427}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &7909643898753085837
 Rigidbody:
@@ -271,6 +271,7 @@ MonoBehaviour:
   interactionType: 3
   interactionComplete: 1
   crosshairSprite: {fileID: 21300000, guid: 3adc5439aaa719448a84b3606909a87d, type: 3}
+  pickupTransform: {fileID: 0}
 --- !u!114 &7909643898753086064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 0
+  clientAuthority: 1
   sendInterval: 0.05
   syncPosition: 1
   syncRotation: 1
@@ -329,7 +330,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7909643898753085836}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83392ae5c1b731446909f252fd494ae4, type: 3}
   m_Name: 
@@ -337,7 +338,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   target: {fileID: 7909643898753085837}
-  clientAuthority: 0
+  clientAuthority: 1
   syncVelocity: 1
   clearVelocity: 0
   velocitySensitivity: 0.1

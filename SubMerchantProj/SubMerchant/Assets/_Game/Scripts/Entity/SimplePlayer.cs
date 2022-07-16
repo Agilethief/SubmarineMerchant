@@ -360,8 +360,12 @@ namespace CargoGame
         // Called remotely via RPC to tell the player they are holding something.
         public void PickedUpObject(Int_Carryable carryObject)
         {
-            handsStateMachine.ChangeState(handsStateMachine.carryingState);
-            playerUI.crosshairPanel.HideCrosshair();
+            if(hasAuthority)
+            { 
+                handsStateMachine.ChangeState(handsStateMachine.carryingState);
+                playerUI.crosshairPanel.HideCrosshair();
+            }
+
             currentCarryObject = carryObject;
         }
         public void DroppedObject()

@@ -30,7 +30,7 @@ namespace CargoGame
 
             if(Input.GetKeyDown(KeyCode.E))
             {
-                CmdDropPickup(0);
+                DropPickup(0);
             }
 
             // Throw the object?
@@ -42,17 +42,18 @@ namespace CargoGame
             }
             if(Input.GetMouseButtonUp(0))
             {
-                CmdDropPickup(throwStr);
+                DropPickup(throwStr);
             }
         }
 
-        [Command]
-        public void CmdDropPickup(float throwStrength)
+        
+        // We tell the pickup to drop. We should only actually be able to do that if we have authority over it, which is assigned when we pick it up
+        public void DropPickup(float throwStrength)
         {
             if(sm.player.currentCarryObject == null) return;
 
             sm.ChangeState(sm.freeHandsState);
-            sm.player.currentCarryObject.Drop(throwStrength * 10); // Tell the object that it is to drop.
+            sm.player.currentCarryObject.CMDDrop(throwStrength * 10); // Tell the object that it is to drop. /
             sm.player.DroppedObject();
         }
 
