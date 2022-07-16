@@ -42,6 +42,7 @@ namespace CargoGame
         void Update()
         {
             if (!hasAuthority) return;
+            if(isServerOnly) return; // If we have authority but this is the server then we return. ??
 
             if (pickupHolderGO != null)
             {
