@@ -39,6 +39,19 @@ namespace CargoGame
             
         }
 
+        [ClientRpc]
+        void RPCSetPickupState(bool isCarried)
+        {
+            if(isCarried)
+            {
+                rb.isKinematic = true;
+            }
+            else
+            {
+                rb.isKinematic = false;
+            }
+        }
+
         void Update()
         {
             if (!hasAuthority) return;
@@ -68,8 +81,9 @@ namespace CargoGame
 
             Debug.Log(interactingPlayer.playerName + ": Interacting with pickup");
             //Debug.Log("Object now picked up");
-            rb.isKinematic = true;
             
+            RPCSetPickupState(true);
+
             pickupHolderGO = pickingUpObject.gameObject; 
             pickupHolder = pickingUpObject.GetComponent<PickupHolder>();
            
@@ -84,17 +98,17 @@ namespace CargoGame
         {
             //if(!hasAuthority) return;
 
-            rb.isKinematic = false;
+            RPCSetPickupState(false);
             
             pickupHolderGO = null;
             pickupTransform = null;
             pickupHolder = null;
 
             interactionComplete = true;
-            netID.RemoveClientAuthority();
-
+            
             rb.AddForce(fwd * throwStr, ForceMode.Impulse);
-
+            
+            netID.RemoveClientAuthority();
         }
 
 
