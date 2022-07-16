@@ -269,7 +269,7 @@ MonoBehaviour:
   doNotSave: 0
   itemID: 0
   interactionType: 3
-  interactionComplete: 1
+  canInteract: 0
   crosshairSprite: {fileID: 21300000, guid: 3adc5439aaa719448a84b3606909a87d, type: 3}
   pickupTransform: {fileID: 0}
   pickupHolderGO: {fileID: 0}
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.01
-  clientAuthority: 0
+  clientAuthority: 1
   sendInterval: 0.01
   syncPosition: 1
   syncRotation: 1
@@ -340,7 +340,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   target: {fileID: 7909643898753085837}
-  clientAuthority: 0
+  clientAuthority: 1
   syncVelocity: 1
   clearVelocity: 0
   velocitySensitivity: 0.1
