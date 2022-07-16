@@ -9,8 +9,10 @@ namespace CargoGame
     {
         
         public Transform pickupTransform;
+        
         [SyncVar]
         public GameObject pickupHolderGO;
+        
         public PickupHolder pickupHolder;
 
         public override void Interact(NetworkConnectionToClient conn, int _interactingPlayerID)
@@ -39,6 +41,8 @@ namespace CargoGame
             
         }
 
+
+        // All clients run this, this handles cleaning up or setting things as needed
         [ClientRpc]
         void RPCSetPickupState(bool isCarried)
         {
@@ -49,6 +53,9 @@ namespace CargoGame
             else
             {
                 rb.isKinematic = false;
+                pickupHolderGO = null;
+                pickupTransform = null;
+                pickupHolder = null;
             }
         }
 
@@ -85,7 +92,7 @@ namespace CargoGame
             RPCSetPickupState(true);
 
             pickupHolderGO = pickingUpObject.gameObject; 
-            pickupHolder = pickingUpObject.GetComponent<PickupHolder>();
+            pickupHolder = pickingUpObject.GetComponent<PickupHolder>(); // This will also be synced by the update loop doing a check
            
 
             netID.AssignClientAuthority(interactingConnectionToClient);
@@ -99,10 +106,6 @@ namespace CargoGame
             //if(!hasAuthority) return;
 
             RPCSetPickupState(false);
-            
-            pickupHolderGO = null;
-            pickupTransform = null;
-            pickupHolder = null;
 
             interactionComplete = true;
             

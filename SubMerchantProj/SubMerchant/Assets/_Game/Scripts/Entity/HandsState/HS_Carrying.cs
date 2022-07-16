@@ -50,9 +50,14 @@ namespace CargoGame
         // We tell the pickup to drop. We should only actually be able to do that if we have authority over it, which is assigned when we pick it up
         public void DropPickup(float throwStrength)
         {
-            if(!sm.hasAuthority) return;
+            if (!sm.hasAuthority)
+            {
+                Debug.Log("Attempted to drop but have no authority to do so");
+                return;
+            }
+            Debug.Log("Attempted to drop and we have authority to do so!");
 
-            if(sm.player.currentCarryObject == null) return;
+            if (sm.player.currentCarryObject == null) return;
             sm.ChangeState(sm.freeHandsState);
             
             // Tell the object to drop
