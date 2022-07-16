@@ -91,6 +91,7 @@ namespace CargoGame
 
             Debug.Log(interactingPlayer.playerName + ": called pickup function");
             //Debug.Log("Object now picked up");
+            netID.RemoveClientAuthority(); // Remove the previous owner
             netID.AssignClientAuthority(interactingConnectionToClient);
 
             RPCSetPickupState(pickingUpObject.gameObject); // Tell everyone the state of the object
