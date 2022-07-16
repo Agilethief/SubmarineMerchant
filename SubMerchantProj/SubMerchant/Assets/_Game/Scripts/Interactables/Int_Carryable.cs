@@ -7,8 +7,11 @@ namespace CargoGame
 {
     public class Int_Carryable : InteractablePressable, ICarryable
     {
-        [SyncVar]
+        
         public Transform pickupTransform;
+        [SyncVar]
+        public GameObject pickupHolderGO;
+        public PickupHolder pickupHolder;
 
         public override void Interact(NetworkConnectionToClient conn, int _interactingPlayerID)
         {
@@ -23,7 +26,7 @@ namespace CargoGame
 
             
 
-            Pickup(interactingPlayer.carrySocket);
+            Pickup(interactingPlayer.transform);
             TargetRPCPickup(conn);
         }
 
@@ -38,12 +41,23 @@ namespace CargoGame
 
         void Update()
         {
-            if(!hasAuthority) return;
-            
-            if (pickupTransform != null)
+            if (!hasAuthority) return;
+
+            if (pickupHolderGO != null)
             {
-                transform.position = pickupTransform.position;
-                transform.rotation = pickupTransform.rotation;
+                if(pickupHolder == null) pickupHolder = pickupHolderGO.GetComponent<PickupHolder>();
+                if (pickupHolder.holdingTransform != null)
+                {
+                    pickupTransform = pickupHolder.holdingTransform;
+                }
+                else
+                {
+                    // This will likely cause problems! Need to resolve
+                    pickupTransform = pickupHolderGO.transform;
+                }
+
+                transform.position = Vector3.Lerp(transform.position, pickupTransform.position, Time.deltaTime * 30); // Clean up some jitter?
+                transform.rotation = Quaternion.Lerp(transform.rotation, pickupTransform.rotation, Time.deltaTime * 10); // Clean up some jitter?
             }
         }
 
@@ -55,8 +69,10 @@ namespace CargoGame
             //Debug.Log("Object now picked up");
             rb.isKinematic = true;
             
-            pickupTransform = pickingUpObject;
-            
+            pickupHolderGO = pickingUpObject.gameObject; 
+            pickupHolder = pickingUpObject.GetComponent<PickupHolder>();
+           
+
             netID.AssignClientAuthority(interactingConnectionToClient);
 
             interactionComplete = false;
@@ -69,7 +85,9 @@ namespace CargoGame
 
             rb.isKinematic = false;
             
+            pickupHolderGO = null;
             pickupTransform = null;
+            pickupHolder = null;
 
             interactionComplete = true;
             netID.RemoveClientAuthority();

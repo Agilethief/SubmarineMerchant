@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 4699491935031722939}
   - component: {fileID: 7086952390371155519}
   - component: {fileID: 1822101342364807981}
+  - component: {fileID: 553685593671475415}
   m_Layer: 6
   m_Name: PlayerSimple
   m_TagString: Untagged
@@ -540,7 +541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 0
+  clientAuthority: 1
   sendInterval: 0.05
   syncPosition: 1
   syncRotation: 1
@@ -575,7 +576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 0
+  clientAuthority: 1
   sendInterval: 0.05
   syncPosition: 0
   syncRotation: 1
@@ -596,6 +597,21 @@ MonoBehaviour:
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
   target: {fileID: 5690384930691936054}
+--- !u!114 &553685593671475415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3333043007360378992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b858e3b8a5f02a244af604b4eb1bb75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  holdingTransform: {fileID: 5746664335405134946}
 --- !u!1 &5389535901785822883
 GameObject:
   m_ObjectHideFlags: 0

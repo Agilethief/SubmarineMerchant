@@ -272,6 +272,7 @@ MonoBehaviour:
   interactionComplete: 1
   crosshairSprite: {fileID: 21300000, guid: 3adc5439aaa719448a84b3606909a87d, type: 3}
   pickupTransform: {fileID: 0}
+  pickupHolder: {fileID: 0}
 --- !u!114 &7909643898753086064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,9 +303,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0.01
   clientAuthority: 1
-  sendInterval: 0.05
+  sendInterval: 0.01
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -317,8 +318,8 @@ MonoBehaviour:
   catchupMultiplier: 0.1
   onlySyncOnChange: 1
   bufferResetMultiplier: 5
-  positionSensitivity: 0.01
-  rotationSensitivity: 0.01
+  positionSensitivity: 0.001
+  rotationSensitivity: 0.001
   scaleSensitivity: 0.01
   showGizmos: 0
   showOverlay: 0
