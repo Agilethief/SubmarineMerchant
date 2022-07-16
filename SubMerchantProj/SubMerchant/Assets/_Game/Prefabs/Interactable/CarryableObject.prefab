@@ -232,7 +232,7 @@ Transform:
   - {fileID: 2245286358570623484}
   - {fileID: 2245286358358146427}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &7909643898753085837
 Rigidbody:
@@ -269,7 +269,7 @@ MonoBehaviour:
   doNotSave: 0
   itemID: 0
   interactionType: 3
-  canInteract: 0
+  canInteract: 1
   crosshairSprite: {fileID: 21300000, guid: 3adc5439aaa719448a84b3606909a87d, type: 3}
   pickupTransform: {fileID: 0}
   pickupHolderGO: {fileID: 0}

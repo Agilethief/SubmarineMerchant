@@ -15,6 +15,13 @@ namespace CargoGame
         
         public PickupHolder pickupHolder;
 
+        Collider[] colliders;
+
+        void Start()
+        {
+            colliders = transform.GetComponentsInChildren<Collider>();
+        }
+
         public override void Interact(NetworkConnectionToClient conn, int _interactingPlayerID)
         {
             if (!canInteract)
@@ -51,7 +58,7 @@ namespace CargoGame
                 rb.isKinematic = true;
                 pickupHolderGO = incomingPickupHolderGO;
                 pickupHolder = incomingPickupHolderGO.GetComponent<PickupHolder>(); // This will also be synced by the update loop doing a check
-           
+                SetColliders(false);
             }
             else        // Pickup state false - we are not carrying
             {
@@ -59,6 +66,7 @@ namespace CargoGame
                 pickupHolderGO = null;
                 pickupTransform = null;
                 pickupHolder = null;
+                SetColliders(true);
             }
         }
 
@@ -109,10 +117,24 @@ namespace CargoGame
 
             canInteract = true;
             
-            rb.AddForce(fwd * throwStr, ForceMode.Impulse);
+           RPCThrowObject(throwStr);
             
         }
 
+         [ClientRpc]
+        void RPCThrowObject(float throwStr)
+        {
+             rb.AddForce(fwd * throwStr, ForceMode.Impulse);
+        }
+
+        void SetColliders(bool active)
+        {
+            foreach(Collider col in colliders)
+            {
+                col.enabled = active;
+            }
+
+        }
 
     }
 }
