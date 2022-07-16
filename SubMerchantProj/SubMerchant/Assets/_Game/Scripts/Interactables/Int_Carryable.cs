@@ -110,7 +110,7 @@ namespace CargoGame
             
             rb.AddForce(fwd * throwStr, ForceMode.Impulse);
             
-            netID.RemoveClientAuthority();
+            //netID.RemoveClientAuthority();
         }
 
 
