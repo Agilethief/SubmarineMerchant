@@ -17,7 +17,7 @@ namespace CargoGame
 
         public override void Interact(NetworkConnectionToClient conn, int _interactingPlayerID)
         {
-            if (!interactionComplete)
+            if (!canInteract)
             {
                 Debug.Log("Interaction is not complete, cancel interaction");
                 return;
@@ -29,7 +29,7 @@ namespace CargoGame
             
 
             Pickup(interactingPlayer.transform);
-            TargetRPCPickup(conn);
+           
         }
 
         
@@ -44,13 +44,16 @@ namespace CargoGame
 
         // All clients run this, this handles cleaning up or setting things as needed
         [ClientRpc]
-        void RPCSetPickupState(bool isCarried)
+        void RPCSetPickupState(GameObject incomingPickupHolderGO)
         {
-            if(isCarried)
-            {
+            if(incomingPickupHolderGO != null) // Pickup state true - We are carrying something
+            { 
                 rb.isKinematic = true;
+                pickupHolderGO = incomingPickupHolderGO;
+                pickupHolder = incomingPickupHolderGO.GetComponent<PickupHolder>(); // This will also be synced by the update loop doing a check
+           
             }
-            else
+            else        // Pickup state false - we are not carrying
             {
                 rb.isKinematic = false;
                 pickupHolderGO = null;
@@ -86,18 +89,14 @@ namespace CargoGame
         {
             //if(!hasAuthority) return;
 
-            Debug.Log(interactingPlayer.playerName + ": Interacting with pickup");
+            Debug.Log(interactingPlayer.playerName + ": called pickup function");
             //Debug.Log("Object now picked up");
-            
-            RPCSetPickupState(true);
-
-            pickupHolderGO = pickingUpObject.gameObject; 
-            pickupHolder = pickingUpObject.GetComponent<PickupHolder>(); // This will also be synced by the update loop doing a check
-           
-
             netID.AssignClientAuthority(interactingConnectionToClient);
 
-            interactionComplete = false;
+            RPCSetPickupState(pickingUpObject.gameObject); // Tell everyone the state of the object
+            TargetRPCPickup(interactingConnectionToClient); // Tell the pickerupper to do internal hand state business.
+
+            canInteract = false;
         }
 
         [Command]
@@ -105,9 +104,9 @@ namespace CargoGame
         {
             //if(!hasAuthority) return;
 
-            RPCSetPickupState(false);
+            RPCSetPickupState(null);
 
-            interactionComplete = true;
+            canInteract = true;
             
             rb.AddForce(fwd * throwStr, ForceMode.Impulse);
             

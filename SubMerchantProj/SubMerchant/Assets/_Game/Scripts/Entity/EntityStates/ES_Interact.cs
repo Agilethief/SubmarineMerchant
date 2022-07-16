@@ -40,7 +40,7 @@ namespace CargoGame
                 return;
             }
             
-            if(sm.currentInteractable.interactionComplete)
+            if(sm.currentInteractable.canInteract)
             {
                 stateMachine.ChangeState(sm.idleState);
                 return;

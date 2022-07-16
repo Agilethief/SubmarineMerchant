@@ -61,7 +61,7 @@ namespace CargoGame
                 yield return null;
             }
 
-            interactionComplete = true;
+            canInteract = true;
 
             yield return null;
         }

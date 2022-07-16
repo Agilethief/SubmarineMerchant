@@ -78,7 +78,7 @@ namespace CargoGame
         {
             //Debug.Log(entityName + " Channel ended");
             beingChanneled = false;
-            interactionComplete = true;
+            canInteract = true;
 
             if(resetChannelOnEnd) channelProgress = 0;
         }
